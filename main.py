@@ -68,7 +68,7 @@ def get_nlast_line(file, n=500):
 
         last_line = last_line.split(b'\n')
         last_line = list(filter(None, last_line))[-n:]
-        last_line = list(map(lambda x: x.decode(), last_line))
+        last_line = list(map(bytes.decode, last_line))
         print(f'Total Lines :{len(last_line)}')
 
         return last_line
@@ -76,7 +76,7 @@ def get_nlast_line(file, n=500):
 
 if __name__ == '__main__':
     with open('file.txt', 'rb') as f:
-        # l = [i for i in range(10)]
-        # for i in l:
-        #     print(get_nlast_line(f, i))
-        print(get_last_line(f))
+        l = [i for i in range(10)]
+        for i in l:
+            print(get_nlast_line(f, i))
+        # print(get_last_line(f))
